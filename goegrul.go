@@ -95,7 +95,7 @@ func getFirm(t string, inn string) (Firm, error) {
 				f.Yurik = false
 				f.FullName = trimValues(res.Rows[i].FullName)
 				f.INN = trimValues(res.Rows[i].INN)
-				f.Expired = (trimValues(res.Rows[i].FullName) != "")
+				f.Expired = (trimValues(res.Rows[i].ExpirationDate) != "")
 			} else {
 				f.Yurik = true
 				f.Address = trimValues(res.Rows[i].Address)
@@ -104,7 +104,7 @@ func getFirm(t string, inn string) (Firm, error) {
 				f.INN = trimValues(res.Rows[i].INN)
 				f.KPP = trimValues(res.Rows[i].KPP)
 				f.Director = trimValues(res.Rows[i].Director)
-				f.Expired = (trimValues(res.Rows[i].FullName) != "")
+				f.Expired = (trimValues(res.Rows[i].ExpirationDate) != "")
 			}
 			return f, nil
 		}
