@@ -1,12 +1,12 @@
 # goegrul
-Package for obtaining data about an organization from EGRUL (Russian register of legal commercial organizations). 
+Package for obtaining data about an organization from EGRUL (Russian register of legal organizations). 
 
-Пакет предназначен для скачивания данных о юрлицах и ИП по ИНН с сайта налоговой https://egrul.nalog.ru/index.html
+Пакет предназначен для скачивания данных о юрлицах и ИП по ИНН с сайта ЕГРЮЛ https://egrul.nalog.ru/index.html
 
 ## Установка
 
 ```bash
-$ go get github.com/maximsitnikov/goegrul
+$ go get -u github.com/maximsitnikov/goegrul
 ```
 
 ## Использование
