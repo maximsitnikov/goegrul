@@ -19,6 +19,7 @@ type firmJSON struct {
 	Rows []struct {
 		Address          string `json:"a"`
 		ShortName        string `json:"c"`
+		ExpirationDate   string `json:"e"`
 		Director         string `json:"g"`
 		Cnt              string `json:"cnt"`
 		INN              string `json:"i"`
@@ -68,6 +69,7 @@ type Firm struct {
 	KPP      string
 	Director string
 	Yurik    bool //юридическое лицо или физическое
+	Expired  bool //не действует
 }
 
 func getFirm(t string, inn string) (Firm, error) {
@@ -93,6 +95,7 @@ func getFirm(t string, inn string) (Firm, error) {
 				f.Yurik = false
 				f.FullName = trimValues(res.Rows[i].FullName)
 				f.INN = trimValues(res.Rows[i].INN)
+				f.Expired = (trimValues(res.Rows[i].FullName) != "")
 			} else {
 				f.Yurik = true
 				f.Address = trimValues(res.Rows[i].Address)
@@ -101,6 +104,7 @@ func getFirm(t string, inn string) (Firm, error) {
 				f.INN = trimValues(res.Rows[i].INN)
 				f.KPP = trimValues(res.Rows[i].KPP)
 				f.Director = trimValues(res.Rows[i].Director)
+				f.Expired = (trimValues(res.Rows[i].FullName) != "")
 			}
 			return f, nil
 		}
